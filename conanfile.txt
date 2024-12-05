@@ -1,0 +1,6 @@
+[requires]
+openmpi/4.1.6
+
+[generators]
+CMakeDeps
+CMakeToolchain
