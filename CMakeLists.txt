@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 project(example)
 
-find_package(MPI REQUIRED)
+find_package(MPI CONFIG REQUIRED)
 
 set(FUNCTION_TYPE "FUNC1" CACHE STRING "Function")
 set_property(CACHE FUNCTION_TYPE PROPERTY STRINGS "FUNC1" "FUNC2" "FUNC3" "FUNC4")
