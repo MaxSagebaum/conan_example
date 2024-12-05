@@ -10,8 +10,9 @@ do
   do
     for conf in $BUILDS
     do
-      echo cmake . -B build_${val}_${func}_${conf} -DCMAKE_TOOLCHAIN_FILE=conan_deps/$conf/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=$conf -DFUNCTION_TYPE=$func -DVALUE_TYPE=$val
-      cmake . -B build_${val}_${func}_${conf} -DCMAKE_TOOLCHAIN_FILE=conan_deps/$conf/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=$conf -DFUNCTION_TYPE=$func -DVALUE_TYPE=$val
+      # echo cmake . -B build_${val}_${func}_${conf} -DCMAKE_PREFIX_PATH=$(pwd)/conan_deps -DCMAKE_BUILD_TYPE=$conf -DFUNCTION_TYPE=$func -DVALUE_TYPE=$val
+      # cmake . -B build_${val}_${func}_${conf} -DCMAKE_PREFIX_PATH=$(pwd)/conan_deps -DCMAKE_BUILD_TYPE=$conf -DFUNCTION_TYPE=$func -DVALUE_TYPE=$val
+      conan build . -s "&:build_type=$conf" -s build_type=Release -o func=$func -o val=$val
     done
   done
 done
